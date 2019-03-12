@@ -15,8 +15,8 @@ public class Expense {
 
 	@Id 
 	private String id;
-	private String description;
-	private Double value;
+	private String descricao;
+	private Double valor;
 	private String codigousuario;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy HH:mm:ss", timezone="America/Sao_Paulo")
 	private Date data;

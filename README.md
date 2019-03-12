@@ -1,6 +1,6 @@
 Usage:
 
-java -jar expenses.jar
+java -jar target/expenses-management-0.0.1-SNAPSHOT.jar
 
 Add expenses:
 ================
@@ -8,8 +8,8 @@ Add expenses:
 HTTP POST to http://127.0.0.1:8080/addExpenses
 
 RequestBody Json Example:
-[{ "description": "Em Março", "value": "1", "codigousuario": "1","data":"01-03-2019 01:01:01"},
- { "description": "Em Agosto", "value": "2", "codigousuario": "1","data":"01-08-2019 01:01:01"}]
+[{ "descricao": "Em Março", "valor": "1", "codigousuario": "1","data":"01-03-2019 01:01:01"},
+ { "descricao": "Em Agosto", "valor": "2", "codigousuario": "1","data":"01-08-2019 01:01:01"}]
 
 List expenses by RANGE:
 =========================
