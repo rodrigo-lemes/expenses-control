@@ -7,9 +7,11 @@ Add expenses:
 
 HTTP POST to http://127.0.0.1:8080/addExpenses
 
+
 RequestBody Json Example:
-[{ "descricao": "Em Março", "valor": "1", "codigousuario": "1","data":"01-03-2019 01:01:01"},
- { "descricao": "Em Agosto", "valor": "2", "codigousuario": "1","data":"01-08-2019 01:01:01"}]
+Usage: {"descricao": <String>, "valor": <american double> , "codigousuario": <number>, "data": <UTC Date Time>}
+[{ "descricao": "Em Março", "valor": "1", "codigousuario": "1","data":"2012-04-23T18:25:43.511Z"},
+ { "descricao": "Em Agosto", "valor": "2", "codigousuario": "1","data":"2018-09-23T18:25:43.511Z"}]
 
 List expenses by RANGE:
 =========================

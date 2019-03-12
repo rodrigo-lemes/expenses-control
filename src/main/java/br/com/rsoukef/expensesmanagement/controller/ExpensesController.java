@@ -23,7 +23,7 @@ import br.com.rsoukef.expensesmanagement.repository.ExpensesRepository;
 @RestController
 public class ExpensesController {
 
-	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
 	@Autowired
 	private ExpensesRepository repository;
@@ -41,7 +41,7 @@ public class ExpensesController {
 	@GetMapping(value = "/getExpensesByRange/{codigoUsuario}/{dateBegin}/{dateFinish}")
 	public Iterable<Expense> getExpensesByRange(@PathVariable String codigoUsuario, @PathVariable String dateBegin,
 			@PathVariable String dateFinish) throws ParseException {
-		formatter.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
+		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		return repository.findByCodigousuarioAndDataBetween(codigoUsuario, formatter.parse(dateBegin),
 				formatter.parse(dateFinish));
 	}
