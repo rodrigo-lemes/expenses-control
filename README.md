@@ -16,13 +16,13 @@ Usage: {"descricao": <String>, "valor": <american double> , "codigousuario": <nu
 List expenses by RANGE:
 =========================
 
-HTTP GET to http://127.0.0.1:8080/getExpensesByRange/<USER_ID>/<DATE RANGE START - dd-MM-yyyy HH:mm:ss>/<DATE RANGE FINISH - dd-MM-yyyy HH:mm:ss>
+HTTP GET to http://127.0.0.1:8080/getExpensesByRange/<USER_ID>/<DATE RANGE START <UTC Date Time>>/<DATE RANGE FINISH <UTC Date Time>>
 
 E.g. (Search by a specific Date):
-http://127.0.0.1:8080/getExpensesByRange/1/01-03-2019 00:00:00/21-03-2019 23:59:59
+http://127.0.0.1:8080/getExpensesByRange/1/2012-04-23T18:25:43.511Z/2012-04-23T18:25:43.511Z
 
 E.g.2 (Search by Date + 5 seconds:
-http://127.0.0.1:8080/getExpensesByRange/1/01-03-2019 00:01:01/21-03-2019 01:01:06
+http://127.0.0.1:8080/getExpensesByRange/1/2012-04-23T18:25:43.511Z/2012-04-23T18:25:48.511Z
 
 Add a category:
 =================
