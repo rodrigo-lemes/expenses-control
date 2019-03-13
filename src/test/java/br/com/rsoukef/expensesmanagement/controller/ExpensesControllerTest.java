@@ -11,7 +11,6 @@ import java.util.TimeZone;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -22,6 +21,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.rsoukef.expensesmanagement.model.Expense;
 import br.com.rsoukef.expensesmanagement.model.InsertResponse;
+import lombok.Getter;
+import lombok.Setter;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,8 +33,10 @@ public class ExpensesControllerTest {
 
 	@Autowired
 	private ExpensesController controller;
-	
+	@Getter
+	@Setter
 	private List<Expense> expenses = new ArrayList<>();
+	
 	
 	private static final String USER_1="1";
 	private static final String USER_2="2";
@@ -84,20 +87,21 @@ public class ExpensesControllerTest {
 		Date end = fmt.parse(fmt.format(new Date()));
 		end.setDate(end.getDate()+1);
 		
-		expenses = new ArrayList<>();
+		setExpenses(new ArrayList<>());
 		
-		expenses.addAll(controller.getExpensesByRange(USER_1, fmt.format(start), fmt.format(end)));
+		getExpenses().addAll(controller.getExpensesByRange(USER_1, fmt.format(start), fmt.format(end)));
 		assertTrue(expenses.size()==2);
 		
-		expenses.addAll(controller.getExpensesByRange(USER_2, fmt.format(start), fmt.format(end)));
+		getExpenses().addAll(controller.getExpensesByRange(USER_2, fmt.format(start), fmt.format(end)));
 		
 		assertTrue(expenses.size()==3);
 	}
-	@Ignore
+	
 	@Test
-	public void stage3_updateCategorySuccessTest() {
+	public void stage3_updateCategorySuccessTest() throws ParseException {
+		stage2_getExpensesByDateRange();
 		List< ResponseEntity<String> > responses = new ArrayList<>();
-		expenses.forEach(expense->{
+		getExpenses().forEach(expense->{
 			expense.setCategoria("Mock_Categoria");
 			responses.add(controller.updateCategory(expense.getId(),expense));	
 		});

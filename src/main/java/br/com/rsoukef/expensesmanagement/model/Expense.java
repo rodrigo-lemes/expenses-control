@@ -13,7 +13,7 @@ import lombok.Data;
 @Document(collection="expenses")
 public class Expense {
 
-	@Id 
+	@Id
 	private String id;
 	private String descricao;
 	@JsonFormat(shape=JsonFormat.Shape.NUMBER_FLOAT, pattern="0.00")
