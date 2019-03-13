@@ -9,20 +9,25 @@ HTTP POST to http://127.0.0.1:8080/addExpenses
 
 
 RequestBody Json Example:
-Usage: {"descricao": <String>, "valor": <american double> , "codigousuario": <number>, "data": <UTC Date Time>}
-[{ "descricao": "Em Março", "valor": "1", "codigousuario": "1","data":"2012-04-23T18:25:43.511Z"},
- { "descricao": "Em Agosto", "valor": "2", "codigousuario": "1","data":"2018-09-23T18:25:43.511Z"}]
+Usage: [{"descricao": <String>, "valor": <american double> , "codigousuario": <number>, "data": <UTC Date Time>}]
 
+E.g. (List):
+
+[{ "descricao": "Em Março", "valor": "1", "codigousuario": "1","data":"2019-03-13T00:27:59.752+0000"},
+ { "descricao": "Em Agosto", "valor": "2", "codigousuario": "1","data":"2019-05-13T00:27:59.752+0000"}]
+ 
 List expenses by RANGE:
 =========================
 
 HTTP GET to http://127.0.0.1:8080/getExpensesByRange/<USER_ID>/<DATE RANGE START <UTC Date Time>>/<DATE RANGE FINISH <UTC Date Time>>
 
-E.g. (Search by a specific Date):
-http://127.0.0.1:8080/getExpensesByRange/1/2012-04-23T18:25:43.511Z/2012-04-23T18:25:43.511Z
+E.g. (Search by a range Date):
+http://127.0.0.1:8080/getExpensesByRange/1/2019-03-12T00:27:59.752+0000/2019-03-14T00:27:59.752+0000
 
-E.g.2 (Search by Date + 5 seconds:
-http://127.0.0.1:8080/getExpensesByRange/1/2012-04-23T18:25:43.511Z/2012-04-23T18:25:48.511Z
+E.g. (Search by a specific Date):
+http://127.0.0.1:8080/getExpensesByRange/1/2019-03-12T00:27:59.752+0000/2019-03-12T00:27:59.752+0000
+
+
 
 Add a category:
 =================
@@ -33,4 +38,4 @@ E.g.: http://127.0.0.1:8080/updateExpenseCategory/5c873caaa167ad1fe5ec9315
 
 RequestBody Json Example:
 
-{"categoria":"UMA NOVA CAT"}
+Usage: {"categoria":"UMA NOVA CAT"}

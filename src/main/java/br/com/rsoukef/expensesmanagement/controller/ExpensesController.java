@@ -39,11 +39,9 @@ public class ExpensesController {
 
 	@ResponseBody
 	@GetMapping(value = "/getExpensesByRange/{codigoUsuario}/{dateBegin}/{dateFinish}")
-	public List<Expense> getExpensesByRange(@PathVariable String codigoUsuario, @PathVariable String dateBegin,
-			@PathVariable String dateFinish) throws ParseException {
+	public List<Expense> getExpensesByRange(@PathVariable String codigoUsuario, @PathVariable String dateBegin,	@PathVariable String dateFinish) throws ParseException {
 		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-		return repository.findByCodigousuarioAndDataBetween(codigoUsuario, formatter.parse(dateBegin),
-				formatter.parse(dateFinish));
+		return repository.findByCodigousuarioAndDataBetween(codigoUsuario, formatter.parse(dateBegin), formatter.parse(dateFinish));
 	}
 
 	@PatchMapping(value = "/updateExpenseCategory/{id}", consumes = "application/json")
